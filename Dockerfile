@@ -2,6 +2,7 @@
 FROM gradle:8.7.0-jdk21 AS builder
 WORKDIR /app
 COPY . .
+RUN chmod +x ./gradlew
 RUN ./gradlew clean build -x test --no-daemon
 
 # -------- Stage 2: Run --------
